@@ -3,6 +3,7 @@ An AI Bot who can understand natural language, execute your commands. Based on A
 
 
 # Deploy to:
+Remember to use `deploy` branch.
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
