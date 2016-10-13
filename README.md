@@ -2,10 +2,6 @@
 An AI Bot who can understand natural language, execute your commands. Based on API.AI from Google.
 
 
-# Deploy to:
-Remember to use `deploy` branch.
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 # How to query
 - For Get request
 ```
@@ -51,6 +47,11 @@ POST body:
 6. API.AI agent take this result and return to user.
 
 
+# Deploy to:
+Remember to use `deploy` branch.
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+# Other
 More info about Api.ai webhooks could be found here:
 [Api.ai Webhook](https://docs.api.ai/docs/webhook)
 
