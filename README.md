@@ -9,3 +9,6 @@ Remember to use `deploy` branch.
 
 More info about Api.ai webhooks could be found here:
 [Api.ai Webhook](https://docs.api.ai/docs/webhook)
+
+Procfile tells Heroku how to run your application.
+Learn more: https://devcenter.heroku.com/articles/procfile
