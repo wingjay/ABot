@@ -5,6 +5,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+import service.weather
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -30,13 +31,26 @@ def webhook():
 
 	response = make_response(result)
 	response.headers['Content-Type'] = 'application/json'
+
+    print("Response:")
+    print(json.dumps(response, indent=4))
 	return response
 
 
+# Every service must provide a function: process(action) and return 
+# return {
+#     "speech": speech,
+#     "displayText": speech,
+#     "data": data,
+#     "contextOut": [],
+#     "source": "wingjay-github-apiai-weather-webhook-sample"
+# }
 def process(action):
 	print "process action"
 	print action
-	return action
+    if action=='get_weather_for_location':
+        result = service.weather.process(action)
+	return result
 
 
 def _mock_request_from_apiai():
