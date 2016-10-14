@@ -18,8 +18,8 @@ def index():
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
-    # req = request.get_json(silent=True, force=True)
-    req = _mock_request_from_apiai()
+    req = request.get_json(silent=True, force=True)
+    # req = _mock_request_from_apiai()
     print("Request:")
     print(json.dumps(req, indent=4))
 
