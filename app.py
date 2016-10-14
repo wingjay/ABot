@@ -18,23 +18,25 @@ def index():
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
-    req = request.get_json(silent=True, force=True)
-
+    # req = request.get_json(silent=True, force=True)
+    req = _mock_request_from_apiai()
     print("Request:")
     print(json.dumps(req, indent=4))
 
     ai_action = req.get("result").get("action")
-    result = ''
+    result = {}
     if ai_action:
-        result = process(ai_action)
+        result = process(req)
     else:
         result = {'speech': None, 'displayText': None}
+
+    result = json.dumps(result, indent=4)
+    print("Result:")
+    print result
 
     response = make_response(result)
     response.headers['Content-Type'] = 'application/json'
     
-    print("Response:")
-    print(json.dumps(response, indent=4))
     return response
 
 
@@ -46,12 +48,10 @@ def webhook():
 #     "contextOut": [],
 #     "source": "wingjay-github-apiai-weather-webhook-sample"
 # }
-def process(action):
-    print "process action"
-    print action
+def process(req):
     result = ''
-    if action == 'get_weather_for_location':
-        result = service.weather.process(action)
+    if req.get("result").get("action") == 'get_weather_for_location':
+        result = service.weather.process(req)
     return result
 
 
@@ -66,7 +66,7 @@ def _mock_request_from_apiai():
             "source": "agent",
             "actionIncomplete": False,
             "resolvedQuery": "weather in London",
-            "action": "yahooWeatherForecast",
+            "action": "get_weather_for_location",
             "score": 1.0,
             "metadata": {
                 "webhookUsed": "true",
