@@ -49,10 +49,18 @@ def webhook():
 #     "source": "wingjay-github-apiai-weather-webhook-sample"
 # }
 def process(req):
-    result = ''
+    speech = ''
     if req.get("result").get("action") == 'get_weather_for_location':
-        result = service.weather.process(req)
-    return result
+        city = req.get("result").get("parameters").get("geo-city")
+        speech = service.weather.process(city)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "wingjay-abot"
+    }
 
 
 def _mock_request_from_apiai():
