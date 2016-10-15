@@ -1,5 +1,5 @@
 # fetch blog by author_name & time_range
-from crawler import wingjay_blog
+from crawler import wingjay_blog, drakeet_blog
 
 
 def process(author_name='wingjay', time_range='recently', number=5):
@@ -10,3 +10,7 @@ def process(author_name='wingjay', time_range='recently', number=5):
 
 def _get_wingjay_blogs(time_range='recently'):
     return wingjay_blog.get_all_blogs()
+
+
+def _get_drakeet_blogs():
+    return drakeet_blog.get_all_blogs()
