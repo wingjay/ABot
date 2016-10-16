@@ -57,7 +57,7 @@ def process(req):
         city = req.get("result").get("parameters").get("geo-city")
         speech = service.weather.process(city)
     elif action == 'get_blog_by_author':
-        data = service.blog.process(req.get("result").get("parameters").get("author_name"))
+        data = service.blog.process(req.get("result").get("parameters").get("author"))
 
     return {
         "speech": speech,
