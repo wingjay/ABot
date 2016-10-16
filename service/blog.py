@@ -3,6 +3,7 @@ from crawler import wingjay_blog, drakeet_blog, pinterest_blog, liwei_blog, wang
 
 
 def process(author_name='wingjay', time_range='recently', number=5):
+    print 'fetch blog for: %s' % author_name
     if author_name is None:
         return "input author's name plz"
     if author_name is 'wingjay':
@@ -20,6 +21,7 @@ def process(author_name='wingjay', time_range='recently', number=5):
 
 
 def _get_wingjay_blogs():
+    print 'fetch wingjay blogs'
     return wingjay_blog.get_all_blogs()
 
 
