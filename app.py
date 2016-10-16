@@ -6,6 +6,7 @@ from flask import request
 from flask import make_response
 
 import service.weather
+import service.blog
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -50,14 +51,18 @@ def webhook():
 # }
 def process(req):
     speech = ''
-    if req.get("result").get("action") == 'get_weather_for_location':
+    data = {}
+    action = req.get("result").get("action")
+    if action == 'get_weather_for_location':
         city = req.get("result").get("parameters").get("geo-city")
         speech = service.weather.process(city)
+    elif action == 'get_blog':
+        data = service.blog.process(req.get("result").get("parameters").get("author_name"))
 
     return {
         "speech": speech,
         "displayText": speech,
-        # "data": data,
+        "data": data,
         # "contextOut": [],
         "source": "wingjay-abot"
     }
