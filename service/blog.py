@@ -6,15 +6,16 @@ def process(author_name='wingjay', time_range='recently', number=5):
     print 'fetch blog for: %s' % author_name
     if author_name is None:
         return "input author's name plz"
-    elif author_name is 'drakeet':
+    elif author_name == 'drakeet':
         return _get_drakeet_blogs()
-    elif author_name is 'pinterest':
+    elif author_name == 'pinterest':
         return _get_pinterest_blogs()
-    elif author_name is 'wangyin':
+    elif author_name == 'wangyin':
         return _get_wangyin_blogs()
-    elif author_name is 'liwei':
+    elif author_name == 'liwei':
         return _get_liwei_blogs()
     else:
+        print 'last else'
         return _get_wingjay_blogs()
 
 
