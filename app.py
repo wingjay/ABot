@@ -79,15 +79,16 @@ def _mock_request_from_apiai():
             "source": "agent",
             "actionIncomplete": False,
             "resolvedQuery": "weather in London",
-            "action": "get_weather_for_location",
+            "action": "get_blog_by_author",
             "score": 1.0,
             "metadata": {
                 "webhookUsed": "true",
-                "intentId": "471fd4d3-d755-40ac-bcb7-85f01c404f57",
-                "intentName": "weather"
+                "intentId": "1cd98f36-2af3-46a7-a761-59d1dd4c3147",
+                "intentName": "get_blog"
             },
             "parameters": {
-                "geo-city": "London"
+                "time_range": "half_year",
+                "author":     "wingjay"
             },
             "contexts": []
         },
