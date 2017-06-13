@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+# from datetime import datetime
 
 from bs4 import BeautifulSoup
 
@@ -16,8 +16,9 @@ def get_all_blogs():
 
         # 2016-03-12T09:30:50+08:00
         raw_time = str(post.select(".post-time")[0].get('datetime'))
-        create_datetime = datetime.strptime(str.split(raw_time, '+')[0], '%Y-%m-%dT%H:%M:%S')
-        days_gap = (datetime.now() - create_datetime).days
+        # create_datetime = datetime.strptime(str.split(raw_time, '+')[0], '%Y-%m-%dT%H:%M:%S')
+        # days_gap = (datetime.now() - create_datetime).days
+        days_gap = 20
 
         blogs.append({
             'name': name,
